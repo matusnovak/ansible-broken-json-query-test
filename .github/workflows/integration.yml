@@ -13,9 +13,12 @@ jobs:
           sudo pip uninstall ansible
           sudo pip3 install ansible jmespath
 
-      - name: Extra
+      - name: Version
         run: |
           ansible-playbook --version
+
+      - name: Config dump
+        run: |
           ansible-config dump --only-changed
 
       - name: Ansible
