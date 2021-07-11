@@ -1,0 +1,23 @@
+name: integration
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: jmespath
+        run: |
+          sudo apt-get install python3-jmespath -y
+          sudo /usr/bin/python -m pip install jmespath
+          /usr/bin/python -m pip install jmespath
+          sudo pip3 install jmespath
+          pip3 install jmespath
+          sudo pip install jmespath
+          pip install jmespath
+
+      - name: Ansible
+        run: |
+          ansible-playbook -vvv -i hosts site.yml

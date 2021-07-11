@@ -1,0 +1,13 @@
+---
+- name: Example
+  hosts: localhost
+  tasks:
+    - name: Set variable
+      set_fact:
+        hello:
+          world:
+            foo: 'example'
+    
+    - name: You need to install jmespath prior to running json_query filter
+      set_fact:
+        example: "{{ hello | json_query('world.foo') }}"
