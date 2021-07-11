@@ -10,6 +10,7 @@ jobs:
 
       - name: jmespath
         run: |
+          sudo pip uninstall ansible
           sudo pip3 install ansible jmespath
 
       - name: Ansible
