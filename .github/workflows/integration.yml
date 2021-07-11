@@ -8,12 +8,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
 
-      - name: jmespath
+      - name: Dependencies
         run: |
           sudo pip uninstall ansible
           sudo pip3 install ansible jmespath
 
-      - name: Ansible
+      - name: Extra
         run: |
           ansible-playbook --version
+          ansible-config dump --only-changed
+
+      - name: Ansible
+        run: |
           ansible-playbook -vvv -i hosts site.yml
